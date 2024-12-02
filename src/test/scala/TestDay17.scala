@@ -1,14 +1,15 @@
 package algo.monsieur.aoc
 
-import y24.Day_1.*
+import y24.Day_17.*
+
 import org.scalatest.funsuite.AnyFunSuite
 
-class TestDay1 extends AnyFunSuite {
+class TestDay17 extends AnyFunSuite {
 
-  private val input: Array[String] = "3   4\n4   3\n2   5\n1   3\n3   9\n3   3".split("\n")
-  
-  private val EXPECTED_RESULT_PART_1: Int = 11
-  private val EXPECTED_RESULT_PART_2: Int = 31
+  private val input: Array[String] = "".split("\n")
+
+  private val EXPECTED_RESULT_PART_1: Int = 0
+  private val EXPECTED_RESULT_PART_2: Int = 0
 
   test("Part 1 sample result is OK") {
     assert(part1(input) == EXPECTED_RESULT_PART_1)
