@@ -1,4 +1,5 @@
 package algo.monsieur.aoc
+package y24
 
 import y24.Day_25.*
 

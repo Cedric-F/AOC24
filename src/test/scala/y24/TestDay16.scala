@@ -1,10 +1,11 @@
 package algo.monsieur.aoc
+package y24
 
-import y24.Day_15.*
+import y24.Day_16.*
 
 import org.scalatest.funsuite.AnyFunSuite
 
-class TestDay15 extends AnyFunSuite {
+class TestDay16 extends AnyFunSuite {
 
   private val input: Array[String] = "".split("\n")
 
