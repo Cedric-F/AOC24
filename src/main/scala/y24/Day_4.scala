@@ -1,6 +1,8 @@
 package algo.monsieur.aoc
 package y24
 
+import scala.util.matching.Regex
+
 object Day_4 extends Day(2024, 4) {
 
   /**
@@ -19,9 +21,24 @@ object Day_4 extends Day(2024, 4) {
    * @return an int
    */
   override def part1(input: Array[String]): Int = {
-    var result = 0
-
-    result
+    val borderlessInput: Array[String] = input.map(r => "." * 4 + r + "." * 4) ++ ((("." * (input(0).length + 8)) + "\n") * 4).split("\n")
+    println(borderlessInput.mkString("\n"))
+    val xmas: Regex = """(XMAS)|(SAMX)""".r
+    input.zipWithIndex.map(
+      (row, y) => {
+        row.zipWithIndex.map {
+          (col, x) =>
+            val nx: Int = x + 4
+            val hor: String = borderlessInput(y).substring(nx, nx + 4)
+            val ver: String = "" + borderlessInput(y)(nx) + borderlessInput(y + 1)(nx) + borderlessInput(y + 2)(nx) + borderlessInput(y + 3)(nx)
+            val diaR: String = "" + borderlessInput(y)(nx) + borderlessInput(y + 1)(nx + 1) + borderlessInput(y + 2)(nx + 2) + borderlessInput(y + 3)(nx + 3)
+            val diaL: String = "" + borderlessInput(y)(nx) + borderlessInput(y + 1)(nx - 1) + borderlessInput(y + 2)(nx - 2) + borderlessInput(y + 3)(nx - 3)
+            Seq(hor, ver, diaR, diaL).map {
+              string => xmas.findAllMatchIn(string).length
+            }.sum
+          }.sum
+      }
+    ).sum
   }
 
   /**
@@ -31,8 +48,28 @@ object Day_4 extends Day(2024, 4) {
    * @return an int
    */
   override def part2(input: Array[String]): Int = {
-    var result = 0
+    val axy: Array[(Int, Int)] = input.zipWithIndex.flatMap { case (row, y) => row.zipWithIndex.map {
+      case (c, x) => if (c == 'A') (y, x) else (-1, -1) }.filter(a => a._1 != -1)
+    }
 
-    result
+    println(axy.mkString("\n"))
+
+    axy.count(a =>
+      try {
+        val topL = input(a._1 - 1)(a._2 - 1)
+        val topR = input(a._1 - 1)(a._2 + 1)
+        val botL = input(a._1 + 1)(a._2 - 1)
+        val botR = input(a._1 + 1)(a._2 + 1)
+        val diaR: String = "" + topL + "A" + botR
+        val diaL: String = "" + topR + "A" + botL
+        val X: String = s"$topL.$topR\n.A.\n$botL.$botR"
+
+        println(s"$diaR  $diaL")
+
+        (diaR.equals("SAM") || diaR.equals("MAS")) && (diaL.equals("SAM") || diaL.equals("MAS"))
+      }
+      catch
+        case exception: Exception => false
+    )
   }
 }
