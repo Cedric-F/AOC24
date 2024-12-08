@@ -2,8 +2,8 @@ package algo.monsieur.aoc
 
 abstract case class Day(var year: Int, var day: Int) {
 
-  def part1(input: Array[String]): Int
-  def part2(input: Array[String]): Int
+  def part1(input: Array[String]): Long
+  def part2(input: Array[String]): Long
 
   def compute(): Unit = {
     try {

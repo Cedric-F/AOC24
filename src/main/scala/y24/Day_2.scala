@@ -7,7 +7,7 @@ object Day_2 extends Day(2024, 2){
     input.map(line => line.split(" ").map(_.toInt))
   }
 
-  override def part1(input: Array[String]): Int = {
+  override def part1(input: Array[String]): Long = {
     val reports = processInput(input)
 
     reports.count(report =>
@@ -20,7 +20,7 @@ object Day_2 extends Day(2024, 2){
     )
   }
 
-  override def part2(input: Array[String]): Int = {
+  override def part2(input: Array[String]): Long = {
     val reports = processInput(input)
 
     reports.count(report =>

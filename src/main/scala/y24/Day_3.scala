@@ -12,7 +12,7 @@ object Day_3 extends Day(2024, 3) {
    * @param input daily puzzle
    * @return an int
    */
-  override def part1(input: Array[String]): Int = {
+  override def part1(input: Array[String]): Long = {
       """mul\((\d+),(\d+)\)""".r.findAllMatchIn(input.mkString).map(m => m.group(1).toInt * m.group(2).toInt).sum
   }
 
@@ -22,7 +22,7 @@ object Day_3 extends Day(2024, 3) {
    * @param input daily puzzle
    * @return an int
    */
-  override def part2(input: Array[String]): Int = {
+  override def part2(input: Array[String]): Long = {
     val pattern: Regex = """do\(\)(.*?mul\((\d+),(\d+)\).*?)don't\(\)""".r
     val in: String = "do()" + input.mkString + "don't()"
     pattern.findAllMatchIn(in).flatMap { dos =>

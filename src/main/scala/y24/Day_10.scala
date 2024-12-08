@@ -18,7 +18,7 @@ object Day_10 extends Day(2024, 10) {
    * @param input daily puzzle
    * @return an int
    */
-  override def part1(input: Array[String]): Int = {
+  override def part1(input: Array[String]): Long = {
     var result = 0
 
     result
@@ -30,7 +30,7 @@ object Day_10 extends Day(2024, 10) {
    * @param input daily puzzle
    * @return an int
    */
-  override def part2(input: Array[String]): Int = {
+  override def part2(input: Array[String]): Long = {
     var result = 0
 
     result

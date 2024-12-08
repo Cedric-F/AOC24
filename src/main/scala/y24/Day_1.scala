@@ -22,7 +22,7 @@ object Day_1 extends Day(2024, 1) {
    * @param input daily puzzle
    * @return an int
    */
-  override def part1(input: Array[String]): Int = {
+  override def part1(input: Array[String]): Long = {
     var (l1, l2) = processInput(input)
 
     l2 = l2.sorted
@@ -41,7 +41,7 @@ object Day_1 extends Day(2024, 1) {
    * @param input daily puzzle
    * @return an int
    */
-  override def part2(input: Array[String]): Int = {
+  override def part2(input: Array[String]): Long = {
     val (l1, l2) = processInput(input)
 
     val group: Map[Int, Int] = l2.groupBy(identity).view.mapValues(_.length).toMap

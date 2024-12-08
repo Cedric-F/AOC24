@@ -26,7 +26,7 @@ object Day_5 extends Day(2024, 5) {
    * @param input daily puzzle
    * @return an int
    */
-  override def part1(input: Array[String]): Int = {
+  override def part1(input: Array[String]): Long = {
     val (rules, updates) = processInput(input)
     updates.filter(update =>
       update.zipWithIndex.forall {
@@ -43,7 +43,7 @@ object Day_5 extends Day(2024, 5) {
    * @param input daily puzzle
    * @return an int
    */
-  override def part2(input: Array[String]): Int = {
+  override def part2(input: Array[String]): Long = {
     val (rules, updates) = processInput(input)
     updates.filter(update =>
       !update.zipWithIndex.forall {

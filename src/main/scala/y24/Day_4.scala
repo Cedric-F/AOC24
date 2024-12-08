@@ -20,7 +20,7 @@ object Day_4 extends Day(2024, 4) {
    * @param input daily puzzle
    * @return an int
    */
-  override def part1(input: Array[String]): Int = {
+  override def part1(input: Array[String]): Long = {
     val borderlessInput: Array[String] = input.map(r => "." * 4 + r + "." * 4) ++ ((("." * (input(0).length + 8)) + "\n") * 4).split("\n")
     val xmas: Regex = """(XMAS)|(SAMX)""".r
     input.zipWithIndex.map(
@@ -46,7 +46,7 @@ object Day_4 extends Day(2024, 4) {
    * @param input daily puzzle
    * @return an int
    */
-  override def part2(input: Array[String]): Int = {
+  override def part2(input: Array[String]): Long = {
     val axy: Array[(Int, Int)] = input.zipWithIndex.flatMap { case (row, y) => row.zipWithIndex.map {
       case (c, x) => if (c == 'A') (y, x) else (-1, -1) }.filter(a => a._1 != -1)
     }

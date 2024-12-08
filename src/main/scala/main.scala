@@ -8,4 +8,6 @@ def main(): Unit =
   //Day_2.compute()
   //Day_3.compute()
   //Day_4.compute()
-  Day_5.compute()
+  //Day_5.compute()
+  //Day_6.compute()
+  Day_7.compute()
